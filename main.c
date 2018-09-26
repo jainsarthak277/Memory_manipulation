@@ -2,9 +2,8 @@
 
 char prompt[10];
 __uint32_t e;
-__uint32_t com_key;
 
-static decode lookup[] = { {"q\n",close}, {"Q\n",close}, {"help\n",help} }; 
+static decode lookup[] = { {"q\n",&quit}, {"Q\n",&quit}, {"help\n",&quit} }; 
 #define N (sizeof(lookup))/(sizeof(decode))
 
 void main()
@@ -13,29 +12,24 @@ void main()
 	{
 		if(*fgets(prompt,10,stdin) != '\n')
 		{
-			com_key = find_command(prompt);	
-			if(com_key!=0)	
-			{
-				switch(com_key)
-				{
-					case 1: e=1;
-						break;					
-					default: break;
-				}
-			}
+			call_command(prompt);	
 		}
 	}
 }
 
-__uint32_t find_command(char *command)
+void call_command(char *command)
 {
 	for(__uint32_t i=0; i<N; i++)
 	{
 		if(strcmp(lookup[i].com,command)==0)
 		{
-			return lookup[i].val;
+			(*lookup[i].com_call)(command);
 		}
 				
 	}
-	return 0;
+}
+
+void quit(char *dummy)
+{
+	e=1;
 }
