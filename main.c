@@ -1,6 +1,7 @@
 #include "main.h"
 
 char prompt[10];
+char *command, *option;
 __uint32_t e;
 
 static decode lookup[] = { {"q\n",&quit}, {"Q\n",&quit}, {"help\n",&help_fn} }; 
@@ -8,13 +9,14 @@ static decode lookup[] = { {"q\n",&quit}, {"Q\n",&quit}, {"help\n",&help_fn} };
 
 void main()
 {
+	command = (char*)malloc(10);	
+	option = (char*)malloc(10);
 	e=0;
 	printf("Hi there\n");
 	while(!e)
 	{
 		if(*fgets(prompt,10,stdin) != '\n')
 		{
-						
 			call_command(prompt);	
 		}
 	}
