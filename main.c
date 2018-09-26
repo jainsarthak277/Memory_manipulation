@@ -13,6 +13,7 @@ void main()
 	{
 		if(*fgets(prompt,10,stdin) != '\n')
 		{
+						
 			call_command(prompt);	
 		}
 	}

@@ -1,5 +1,5 @@
 objects = main.o
-header = main.h
+headers = main.h
 
 memfun : $(objects) $(headers)
 	gcc -o memfun $(objects)
