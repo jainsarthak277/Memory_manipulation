@@ -8,6 +8,7 @@ static decode lookup[] = { {"q\n",&quit}, {"Q\n",&quit}, {"help\n",&quit} };
 
 void main()
 {
+	e=0;
 	while(!e)
 	{
 		if(*fgets(prompt,10,stdin) != '\n')
