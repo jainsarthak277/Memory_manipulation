@@ -3,11 +3,15 @@
 #include <string.h>
 #include "help.h"
 
-typedef struct { char *com; void (*com_call)(char *);} __attribute__((packed))decode;
+typedef struct 
+{ 
+	char *com; 
+	void (*com_call)(char *, char *);
+} __attribute__((packed))decode;
 
-void call_command(char *command, char *option);
+void call_command(char *command, char *option1, char *option2);
 
-void quit(char *dummy);
+void quit(char *dummy1, char *dummy2);
 
 char *remove_spaces(char *ip);
 
