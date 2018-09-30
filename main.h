@@ -3,6 +3,7 @@
 #include <string.h>
 #include "help.h"
 #include "allocate.h"
+#include "free.h"
 
 typedef struct 
 { 
