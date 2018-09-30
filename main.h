@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "help.h"
+#include "allocate.h"
 
 typedef struct 
 { 
