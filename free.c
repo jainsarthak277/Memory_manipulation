@@ -2,21 +2,31 @@
 
 void free_fn(char *dummy1, char *dummy2)
 {
-	if(dummy1 == NULL && dummy2 == NULL)
-	{	
-		if(mem_status==1)
+	if(dummy2 == NULL)
+	{	if(dummy1==NULL)
 		{
-			free(mem_ptr);
-			mem_status=0;
-			printf("Memory freed !!!\n");
+			if(mem_status==1)
+			{
+				free(mem_ptr);
+				mem_status=0;
+				printf("Memory freed !!!\n");
+			}
+			else
+			{
+				printf("Memory NOT allocated. Free failed !!! \n");
+			}
+		}
+		else if(strcmp(dummy1,"help")==0)
+		{
+			help_fn("free",dummy2);
 		}
 		else
 		{
-			printf("Memory NOT allocated. Free failed !!! \n");
+			printf("Invalid option for free !!!\n");
 		}
 	}
 	else
 	{
-		printf("Option not allowed for this command !!!\n");
+		printf("More than one option not allowed for this command !!!\n");
 	}
 }
