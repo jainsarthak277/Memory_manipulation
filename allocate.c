@@ -8,7 +8,8 @@ void allocate_fn(char *option, char *dummy)
 		{
 			if(mem_status==0)
 			{			
-				mem_ptr = (char *)malloc(atoi(option+4)*4);
+				mem_size = atoi(option+4);				
+				mem_ptr = (char *)malloc(mem_size*4);
 				mem_status = 1;
 				printf("Memory allocated from address : %p\n",mem_ptr);
 			}
