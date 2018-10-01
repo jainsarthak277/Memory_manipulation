@@ -3,4 +3,4 @@
 
 long address;
 __uint32_t value, addr_diff, *tmp;
-void write_fn(char *addr, char *val);
+void write_fn(char *addr, char *val, char *dummy);

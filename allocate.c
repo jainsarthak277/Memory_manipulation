@@ -1,8 +1,8 @@
 #include "allocate.h"
 
-void allocate_fn(char *option, char *dummy)
+void allocate_fn(char *option, char *dummy1, char *dummy2)
 {	
-	if(dummy == NULL)
+	if(dummy1 == NULL && dummy2 == NULL)
 	{
 		if(strncmp(option,"size",4)==0)
 		{
@@ -20,7 +20,7 @@ void allocate_fn(char *option, char *dummy)
 		}
 		else if(strcmp(option,"help")==0)
 		{
-			help_fn("allocate",dummy);
+			help_fn("allocate",dummy1,dummy2);
 		}
 		else
 		{

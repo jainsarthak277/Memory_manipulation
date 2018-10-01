@@ -7,4 +7,4 @@
 #define write_h "write\t\tWrite at indicated memory location\n"
 #define invert_h "invert\t\tInvert all memory bits\n"
 
-void help_fn(char* option, char *dummy);
+void help_fn(char* option, char *dummy1, char *dummy2);

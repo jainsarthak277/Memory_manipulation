@@ -9,12 +9,12 @@
 typedef struct 
 { 
 	char *com; 
-	void (*com_call)(char *, char *);
+	void (*com_call)(char *, char *, char *);
 } __attribute__((packed))decode;
 
-void call_command(char *command, char *option1, char *option2);
+void call_command(char *command, char *option1, char *option2, char *option3);
 
-void quit(char *dummy1, char *dummy2);
+void quit(char *dummy1, char *dummy2, char *dummy3);
 
 char *remove_spaces(char *ip);
 

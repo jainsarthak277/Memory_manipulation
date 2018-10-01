@@ -1,7 +1,7 @@
 #include "main.h"
 
 char *prompt;
-char *command, *option[2], *op;
+char *command, *option[3], *op;
 __uint32_t e;
 
 static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn} }; 
@@ -9,27 +9,29 @@ static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"alloca
 
 void main()
 {
-	prompt = (char*)malloc(40);	
+	prompt = (char*)malloc(70);	
 	command = (char*)malloc(10);	
 	option[0] = (char*)malloc(20);
-	option[1] = (char*)malloc(10);
-	op = (char*)malloc(40);
+	option[1] = (char*)malloc(20);
+	option[3] = (char *)malloc(20);
+	op = (char*)malloc(70);
 	e=0;
 	printf("Hi there\nPress \"help\" for help !!!\nPress q or Q to exit\n");
 	while(!e)
 	{
-		if(*fgets(prompt,40,stdin) != '\n')
+		if(*fgets(prompt,70,stdin) != '\n')
 		{
 			prompt=remove_spaces(prompt);
 			command = strtok(prompt,"-");	
 			option[0] = strtok(NULL,"-");	
 			option[1] = strtok(NULL,"-");
-			call_command(command,option[0],option[1]);	
+			option[2] = strtok(NULL,"-");
+			call_command(command,option[0],option[1],option[2]);	
 		}
 	}
 }
 
-void call_command(char *command, char *option1, char *option2)
+void call_command(char *command, char *option1, char *option2, char *option3)
 {
 	__uint32_t invalid=1;	
 	for(__uint32_t i=0; i<N; i++)
@@ -37,7 +39,7 @@ void call_command(char *command, char *option1, char *option2)
 		if(strcmp(lookup[i].com,command)==0)
 		{
 			invalid=0;			
-			(*lookup[i].com_call)(option1, option2);
+			(*lookup[i].com_call)(option1, option2, option3);
 		}
 				
 	}
@@ -47,7 +49,7 @@ void call_command(char *command, char *option1, char *option2)
 	}
 }
 
-void quit(char *dummy1, char *dummy2)
+void quit(char *dummy1, char *dummy2, char *dummy3)
 {
 	dummy1 = (char*)malloc(3);
 	dummy1 = (char*)malloc(3);	

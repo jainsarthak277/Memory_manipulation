@@ -1,8 +1,8 @@
 #include "help.h"
 
-void help_fn(char *option, char* dummy)
+void help_fn(char *option, char* dummy1, char *dummy2)
 {
-	if(dummy == NULL)
+	if(dummy1 == NULL && dummy2==NULL)
 	{
 		if(option == NULL)
 		{	
