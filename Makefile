@@ -1,5 +1,5 @@
-objects = main.o help.o allocate.o free.o
-headers = main.h help.h allocate.h free.h
+objects = main.o help.o allocate.o free.o write.o
+headers = main.h help.h allocate.h free.h write.h
 
 memfun : $(objects) $(headers)
 	gcc -o memfun $(objects)

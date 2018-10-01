@@ -4,21 +4,21 @@ char *prompt;
 char *command, *option[2], *op;
 __uint32_t e;
 
-static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn} }; 
+static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn} }; 
 #define N (sizeof(lookup))/(sizeof(decode))
 
 void main()
 {
-	prompt = (char*)malloc(20);	
+	prompt = (char*)malloc(40);	
 	command = (char*)malloc(10);	
-	option[0] = (char*)malloc(10);
+	option[0] = (char*)malloc(20);
 	option[1] = (char*)malloc(10);
-	op = (char*)malloc(20);
+	op = (char*)malloc(40);
 	e=0;
 	printf("Hi there\nPress \"help\" for help !!!\nPress q or Q to exit\n");
 	while(!e)
 	{
-		if(*fgets(prompt,20,stdin) != '\n')
+		if(*fgets(prompt,40,stdin) != '\n')
 		{
 			prompt=remove_spaces(prompt);
 			command = strtok(prompt,"-");	

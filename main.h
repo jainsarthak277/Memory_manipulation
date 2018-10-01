@@ -4,6 +4,7 @@
 #include "help.h"
 #include "allocate.h"
 #include "free.h"
+#include "write.h"
 
 typedef struct 
 { 
