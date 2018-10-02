@@ -6,6 +6,7 @@
 #include "free.h"
 #include "write.h"
 #include "writepattern.h"
+#include "display.h"
 
 typedef struct 
 { 
