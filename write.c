@@ -7,19 +7,33 @@ void write_fn(char *addr, char *val, char *dummy)
 	{
 		if(addr!=NULL && val!=NULL && mem_status==1)
 		{
-			if(strncmp(addr,"addr",4)==0)
+			if(strncmp(addr,"addr",4)==0 || strncmp(addr,"offset",6)==0)
 			{
-				address=strtol(addr+4,&addr,16);
-				addr_diff = address-(long)mem_ptr;
-				if(addr_diff%4 == 0 && addr_diff/4 < mem_size)
-				{
-					tmp=(__uint32_t *)address;		
+				if(strncmp(addr,"addr",4)==0)
+				{				
+					address=strtol(addr+4,&addr,16);
+					addr_diff = address-(long)mem_ptr;
+					if(addr_diff%4 == 0 && addr_diff/4 < mem_size)
+					{
+						tmp=(__uint32_t *)address;		
+					}
+					else
+					{
+						printf("Address out of allocated range !!!\n");
+					}
 				}
-				else
+				else if(strncmp(addr,"offset",6)==0)
 				{
-					printf("Address out of allocated range !!!\n");
+					off=atoi(addr+6);
+					if(off<mem_size)
+					{
+						tmp = (__uint32_t *)mem_ptr + off;
+					}
+					else
+					{
+						printf("Address out of allocated range !!!\n");
+					}
 				}
-
 				if(strncmp(val,"val",3)==0)
 				{
 					if(strlen(val+3)<=8)
