@@ -8,10 +8,24 @@ void allocate_fn(char *option, char *dummy1, char *dummy2)
 		{
 			if(mem_status==0)
 			{			
-				mem_size = atoi(option+4);				
-				mem_ptr = (char *)malloc(mem_size*4);
-				mem_status = 1;
-				printf("Memory allocated from address : %p\n",mem_ptr);
+				mem_size = atoi(option+4);
+				if (mem_size != 0)
+				{				
+					mem_ptr = (char *)malloc(mem_size*4);
+					if (mem_ptr != NULL)
+					{
+						mem_status = 1;
+						printf("Memory allocated from address : %p\n",mem_ptr);
+					}
+					else 
+					{
+						printf("Malloc failed\n");
+					}
+				}
+				else 
+				{
+					printf("Error - Size cannot be 0\n");
+				}
 			}
 			else
 			{

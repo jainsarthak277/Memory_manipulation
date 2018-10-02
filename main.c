@@ -4,7 +4,7 @@ char *prompt;
 char *command, *option[3], *op;
 __uint32_t e;
 
-static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn} }; 
+static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}}; 
 #define N (sizeof(lookup))/(sizeof(decode))
 
 void main()

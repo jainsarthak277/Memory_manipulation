@@ -1,0 +1,49 @@
+#include "writepattern.h"
+
+void write_pattern_fn(char* addr_wp, char* siz, char* sd)
+{
+	tmp_wp = (__uint32_t *)malloc(4);
+	if (addr_wp != NULL && siz != NULL && sd != NULL)
+	{
+		if(strncmp(addr_wp,"addr",4)==0)
+		{
+			address_wp=strtol(addr_wp+4,&addr_wp,16);
+			addr_diff_wp = address_wp-(long)mem_ptr;
+			if(addr_diff_wp%4 == 0 && addr_diff_wp/4 < mem_size)
+			{
+				tmp_wp=(__uint32_t *)address_wp;		
+			}
+			else
+			{
+				printf("Address out of allocated range !!!\n");
+			}
+			if(strncmp(siz,"size",4)==0)
+			{
+				size=atoi(siz+4);
+				if(strncmp(sd,"seed",4)==0)
+				{
+					seed=atoi(sd+4);
+					x_1 = (__uint32_t*)malloc(10);
+					x_0 = seed;
+					for (int i = 0;i < size;i++)
+					{
+						x_1 = prng_fn(x_0);
+						*tmp_wp = *x_1;
+						tmp_wp++;
+						x_0 = *x_1;
+					}
+					printf("Random code written to specified memory location\n");
+					free(x_1);
+				}
+			}
+		}
+	}
+	else if(strcmp(addr_wp,"help")==0)
+	{
+		help_fn("pattern",siz,sd);
+	}
+	else
+	{
+		printf("Incomplete option for this command !!!\n");
+	}
+}

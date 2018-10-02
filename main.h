@@ -5,6 +5,7 @@
 #include "allocate.h"
 #include "free.h"
 #include "write.h"
+#include "writepattern.h"
 
 typedef struct 
 { 
