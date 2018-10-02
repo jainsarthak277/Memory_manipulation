@@ -5,6 +5,7 @@ void display_fn(char *addr, char *size, char *dummy)
 	tmp = (__uint32_t *)malloc(4);
 	valid_op=0;
 	bypass=0;
+	err=0;
 
 	if(addr==NULL && size==NULL && dummy==NULL)
 	{
@@ -28,6 +29,7 @@ void display_fn(char *addr, char *size, char *dummy)
 			else
 			{
 				printf("Address out of allocated range !!!\n");
+				err=1;
 			}
 		}
 		else if(strncmp(addr,"offset",6)==0)
@@ -40,6 +42,7 @@ void display_fn(char *addr, char *size, char *dummy)
 			else
 			{
 				printf("Address out of allocated range !!!\n");
+				err=1;
 			}
 		}
 		else if(strcmp(addr,"help")==0)
@@ -56,7 +59,7 @@ void display_fn(char *addr, char *size, char *dummy)
 				sz = mem_size - off;
 			}
 		}
-		else
+		else if(err==0)
 		{
 			printf("Invalid option for display !!!\n");
 		}
@@ -71,7 +74,7 @@ void display_fn(char *addr, char *size, char *dummy)
 		tmp = (__uint32_t *)mem_ptr + off;
 		while(sz)
 		{
-			printf("Address: %p\tData: %d\n",tmp,*tmp);
+			printf("Address: %p\tData: %x\n",tmp,*tmp);
 			tmp+=1;
 			sz-=1;
 		}
