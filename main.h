@@ -7,6 +7,7 @@
 #include "write.h"
 #include "writepattern.h"
 #include "display.h"
+#include "verify.h"
 
 typedef struct 
 { 

@@ -1,5 +1,6 @@
 #include "allocate.h"
 #include "prng.h"
+#include <time.h>
 
 void write_pattern_fn(char* addr_wp, char* siz, char* sd);
 

@@ -5,6 +5,8 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 	tmp_wp = (__uint32_t *)malloc(4);
 	valid_op=0;
 	err=0;
+	clock_t t;
+	t = clock();
 
 	if (addr_wp != NULL && siz != NULL && sd != NULL)
 	{
@@ -36,7 +38,6 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 				err=1;
 			}
 		}
-
 		if(strncmp(siz,"size",4)==0 && valid_op==1)
 		{
 			size=atoi(siz+4);
@@ -75,8 +76,11 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 				tmp_wp++;
 				x_0 = *x_1;
 			}
-			printf("Random code written to specified memory location\n");
+			printf("Random data written to specified memory location\n");
 			free(x_1);
 		}
 	}
+	t = clock() - t;
+	double time_taken = ((double)t)/CLOCKS_PER_SEC;
+	printf("%f seconds taken to execute\n", time_taken);
 }
