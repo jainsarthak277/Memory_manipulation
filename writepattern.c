@@ -5,14 +5,13 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 	tmp_wp = (__uint32_t *)malloc(4);
 	valid_op=0;
 	err=0;
-	clock_t t;
 	t = clock();
 
 	if (addr_wp != NULL && siz != NULL && sd != NULL)
 	{
 		if(strncmp(addr_wp,"addr",4)==0)
 		{
-			address_wp=strtol(addr_wp+4,&addr_wp,16);
+			address_wp=strtol(addr_wp+4,NULL,16);
 			addr_diff_wp = address_wp-(long)mem_ptr;
 			off = addr_diff_wp/4;
 			if(addr_diff_wp%4 == 0 && addr_diff_wp/4 < mem_size)
@@ -54,7 +53,7 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 	}
 	else if(strcmp(addr_wp,"help")==0)
 	{
-		help_fn("pattern",siz,sd);
+		help_fn("pattern",NULL,NULL);
 	}
 	else
 	{
@@ -81,6 +80,6 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 		}
 	}
 	t = clock() - t;
-	double time_taken = ((double)t)/CLOCKS_PER_SEC;
+	time_taken = ((double)t)/CLOCKS_PER_SEC;
 	printf("%f seconds taken to execute\n", time_taken);
 }

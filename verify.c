@@ -2,7 +2,6 @@
 
 void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 {
-	clock_t t;
 	t = clock();
 	tmp_v = (__uint32_t *)malloc(4);
 	valid_op=0;
@@ -11,7 +10,7 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 	{
 		if(strncmp(addr_v,"addr",4)==0)
 		{
-			address_v=strtol(addr_v+4,&addr_v,16);
+			address_v=strtol(addr_v+4,NULL,16);
 			addr_diff_v = address_v-(long)mem_ptr;
 			off = addr_diff_v/4;
 			if(addr_diff_v%4 == 0 && addr_diff_v/4 < mem_size)
@@ -52,7 +51,7 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 		}
 		else if(strcmp(addr_v,"help")==0)
 		{
-			help_fn("verify",siz_v,sd_v);
+			help_fn("verify",NULL,NULL);
 		}
 		else
 		{
@@ -93,7 +92,7 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 		}
 	}
 	t = clock() - t;
-	double time_taken = ((double)t)/CLOCKS_PER_SEC;
+	time_taken = ((double)t)/CLOCKS_PER_SEC;
 	printf("%f seconds taken to execute\n", time_taken);
 }
 

@@ -8,6 +8,7 @@
 #include "writepattern.h"
 #include "display.h"
 #include "verify.h"
+#include "invert.h"
 
 typedef struct 
 { 

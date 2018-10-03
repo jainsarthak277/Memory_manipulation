@@ -39,11 +39,7 @@ void write_fn(char *addr, char *val, char *dummy)
 					err=1;
 				}
 			}
-			else if(strcmp(addr,"help")==0)
-			{
-				help_fn("write",val,dummy);
-			}
-			
+						
 			if(strncmp(val,"val",3)==0 && valid_op==1)
 			{
 				if(strlen(val+3)<=8)
@@ -61,6 +57,10 @@ void write_fn(char *addr, char *val, char *dummy)
 			{
 				printf("Invalid option for write !!!\n");
 			}
+		}
+		else if(strcmp(addr,"help")==0)
+		{
+			help_fn("write",NULL,NULL);
 		}
 		else if(mem_status==0)
 		{

@@ -18,7 +18,7 @@ void free_fn(char *dummy1, char *dummy2, char *dummy3)
 		}
 		else if(strcmp(dummy1,"help")==0)
 		{
-			help_fn("free",dummy2,dummy3);
+			help_fn("free",NULL,NULL);
 		}
 		else
 		{
