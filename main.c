@@ -29,6 +29,7 @@ void main()
 			call_command(command,option[0],option[1],option[2]);	
 		}
 	}
+	printf("Bye !!!\n");
 }
 
 void call_command(char *command, char *option1, char *option2, char *option3)
