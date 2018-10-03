@@ -10,6 +10,10 @@
 #include "verify.h"
 #include "invert.h"
 
+char *prompt;
+char *command, *option[3], *op;
+__uint32_t e;
+
 typedef struct 
 { 
 	char *com; 
