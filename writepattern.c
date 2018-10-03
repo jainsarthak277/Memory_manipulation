@@ -69,7 +69,7 @@ void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 			seed=atoi(sd+4);
 			x_1 = (__uint32_t*)malloc(10);
 			x_0 = seed;
-			for (int i = 0;i < size;i++)
+			for (__uint32_t i = 0;i < size;i++)
 			{
 				x_1 = prng_fn(x_0);
 				*tmp_wp = *x_1;
