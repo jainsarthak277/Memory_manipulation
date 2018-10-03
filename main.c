@@ -1,14 +1,10 @@
 #include "main.h"
 
-char *prompt;
-char *command, *option[3], *op;
-__uint32_t e;
-
 static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}, {"display",display_fn}, 				   {"verify",&verify_fn}, {"invert",&invert_fn}}; 
 #define N (sizeof(lookup))/(sizeof(decode))
 
 void main()
-{
+{	
 	prompt = (char*)malloc(70);	
 	command = (char*)malloc(10);	
 	option[0] = (char*)malloc(20);
@@ -20,7 +16,7 @@ void main()
 	while(!e)
 	{
 		if(*fgets(prompt,70,stdin) != '\n')
-		{
+		{	
 			prompt=remove_spaces(prompt);
 			command = strtok(prompt,"-");	
 			option[0] = strtok(NULL,"-");	
