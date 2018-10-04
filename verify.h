@@ -1,4 +1,3 @@
-//#include "writepattern.h"
 #include "allocate.h"
 #include "prng.h"
 #include <time.h>

@@ -10,3 +10,4 @@
 #define verify_h "verify\t\tVerify pseudo-random pattern at specified address\n"
 
 void help_fn(char* option, char *dummy1, char *dummy2);
+
