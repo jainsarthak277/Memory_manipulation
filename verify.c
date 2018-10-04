@@ -49,10 +49,6 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 		{
 			printf("Invalid option for pattern !!!\n");
 		}
-		else if(strcmp(addr_v,"help")==0)
-		{
-			help_fn("verify",NULL,NULL);
-		}
 		else
 		{
 			printf("Incomplete option for this command !!!\n");
@@ -90,6 +86,10 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 				}
 			}
 		}
+	}
+	else if(strcmp(addr_v,"help")==0)
+	{
+		help_fn("verify",NULL,NULL);
 	}
 	t = clock() - t;
 	time_taken = ((double)t)/CLOCKS_PER_SEC;
