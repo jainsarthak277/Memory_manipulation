@@ -1,3 +1,13 @@
+/***********************************************************************************
+* @write.c
+* @This file contains write_fn() which is used to write a word at a particular address
+* from previously allocate memory. User can provide either address or offset and value.
+* It contains error handling in case memory was not allocated, if user passes more than
+* 2 option, if invalid option is passed and user can also invoke this command's help from here.
+* 
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include "write.h"
 
 void write_fn(char *addr, char *val, char *dummy)
@@ -14,7 +24,7 @@ void write_fn(char *addr, char *val, char *dummy)
 			{
 				address=strtol(addr+4,NULL,16);
 				addr_diff = address-(long)mem_ptr;
-				if(addr_diff%4 == 0 && addr_diff/4 < mem_size)
+				if(addr_diff%4 == 0 && addr_diff/4 < mem_size)	//Address boundary and range check
 				{
 					tmp=(__uint32_t *)address;
 					valid_op=1;		
@@ -28,7 +38,7 @@ void write_fn(char *addr, char *val, char *dummy)
 			else if(strncmp(addr,"offset",6)==0)
 			{
 				off=atoi(addr+6);
-				if(off<mem_size)
+				if(off<mem_size)			//Offset boundary check
 				{
 					tmp = (__uint32_t *)mem_ptr + off;
 					valid_op=1;
@@ -42,7 +52,7 @@ void write_fn(char *addr, char *val, char *dummy)
 						
 			if(strncmp(val,"val",3)==0 && valid_op==1)
 			{
-				if(strlen(val+3)<=8)
+				if(strlen(val+3)<=8)		//Value check for 32bit number
 				{				
 					value=strtol(val+3,&val,16);
 					*tmp=(__uint32_t)value;
@@ -58,7 +68,7 @@ void write_fn(char *addr, char *val, char *dummy)
 				printf("Invalid option for write !!!\n");
 			}
 		}
-		else if(strcmp(addr,"help")==0)
+		else if(strcmp(addr,"help")==0)				//Invoke help on "help" option
 		{
 			help_fn("write",NULL,NULL);
 		}

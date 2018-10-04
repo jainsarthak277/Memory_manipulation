@@ -1,3 +1,13 @@
+/***********************************************************************************
+* @allocate.c
+* @This file contains allocate_fn() which is used to allocate memory whose size is 
+* specified by user. It contains error handling in case allocation fails, if user 
+* passes more than one option, if invalid option is passed and user can also invoke 
+* this command's help from here.
+* 
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include "allocate.h"
 
 void allocate_fn(char *option, char *dummy1, char *dummy2)
@@ -8,7 +18,7 @@ void allocate_fn(char *option, char *dummy1, char *dummy2)
 		{
 			if(mem_status==0)
 			{			
-				mem_size = atoi(option+4);
+				mem_size = atoi(option+4);				//Get user specified size
 				if (mem_size != 0)
 				{				
 					mem_ptr = (char *)malloc(mem_size*4);
@@ -32,7 +42,7 @@ void allocate_fn(char *option, char *dummy1, char *dummy2)
 				printf("Free previously allocated memory. Allocation failed !!!\n");
 			}
 		}
-		else if(strcmp(option,"help")==0)
+		else if(strcmp(option,"help")==0)					//Call help if user passes "help" option
 		{
 			help_fn("allocate",dummy1,dummy2);
 		}

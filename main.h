@@ -1,6 +1,6 @@
 /***********************************************************************************
 * @main.h
-* @This headerr file includes all the function header files and it had variable and
+* @This header file includes all the function header files and it had variable and
 * function declaration used in main.c
 *
 * @author Vatsal Sheth & Sarthak Jain
