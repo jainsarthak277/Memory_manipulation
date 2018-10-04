@@ -1,0 +1,10 @@
+help
+allocate -size 5
+write -offset 0 -val 12ad
+pattern -offset 1 -size 4 -seed32
+display
+verify -offset 1 -size4 -seed 32
+invert -offset 0 -size 4
+verify -offset 1 -size 4 -seed 32
+free
+q

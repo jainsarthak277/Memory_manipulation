@@ -34,6 +34,9 @@ verify.o : verify.c verify.h allocate.o prng.o
 invert.o : invert.c invert.h allocate.o
 	gcc -c invert.c
 
+test : memfun test.txt
+	./memfun < test.txt
+
 clean : 	
 	rm memfun $(objects)
 

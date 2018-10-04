@@ -1,6 +1,16 @@
+/***********************************************************************************
+* @main.c
+* @This file contains main commands and option decode logic. Commands are checked
+* against a lookup table and corresponding function pointer is used to call function.
+* Options are passed as arguments to this function andn further decode takes place
+* inside respective functions.
+* 
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
 #include "main.h"
 
 static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}, {"display",display_fn}, {"verify",&verify_fn}, {"invert",&invert_fn}}; 
+
 #define N (sizeof(lookup))/(sizeof(decode))
 
 void main()
@@ -11,9 +21,9 @@ void main()
 	option[1] = (char*)malloc(20);
 	option[3] = (char *)malloc(20);
 	op = (char*)malloc(70);
-	e=0;
+	e=1;
 	printf("Hi there\nPress \"help\" for help !!!\nPress q or Q to exit\n");
-	while(!e)
+	while(e)
 	{
 		if(*fgets(prompt,70,stdin) != '\n')
 		{	
@@ -50,7 +60,7 @@ void quit(char *dummy1, char *dummy2, char *dummy3)
 {
 	dummy1 = (char*)malloc(3);
 	dummy1 = (char*)malloc(3);	
-	e=1;
+	e=0;
 }
 
 

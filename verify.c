@@ -77,7 +77,7 @@ void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 								printf("Discrepancy found\n");
 							}
 							check++;
-							printf("Address: %p   Actual: %d          Expected: %d\n", tmp_v,*tmp_v,*x_1);	
+							printf("Address: %p   Actual: %x          Expected: %x\n", tmp_v,*tmp_v,*x_1);	
 						}
 						tmp_v+=1;
 						x_0 = *x_1;
