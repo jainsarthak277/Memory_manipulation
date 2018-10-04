@@ -9,7 +9,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "display.h"
+#include "../inc/display.h"
 
 void display_fn(char *addr, char *size, char *dummy)
 {

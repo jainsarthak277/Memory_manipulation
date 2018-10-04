@@ -14,7 +14,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "invert.h"
+#include "../inc/invert.h"
 
 void invert_fn(char *addr, char *size, char *dummy)
 {

@@ -8,7 +8,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "main.h"
+#include "../inc/main.h"
 
 static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}, {"display",display_fn}, {"verify",&verify_fn}, {"invert",&invert_fn}}; 						//Lookup Table
 

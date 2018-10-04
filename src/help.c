@@ -11,7 +11,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "help.h"
+#include "../inc/help.h"
 
 void help_fn(char *option, char* dummy1, char *dummy2)		//function for option comparison
 {

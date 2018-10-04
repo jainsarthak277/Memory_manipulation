@@ -8,7 +8,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "allocate.h"
+#include "../inc/allocate.h"
 
 void allocate_fn(char *option, char *dummy1, char *dummy2)
 {	

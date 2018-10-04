@@ -7,7 +7,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "free.h"
+#include "../inc/free.h"
 
 void free_fn(char *dummy1, char *dummy2, char *dummy3)
 {

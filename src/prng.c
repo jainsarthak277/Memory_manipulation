@@ -11,7 +11,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "prng.h"
+#include "../inc/prng.h"
 
 __uint32_t* prng_fn(__uint32_t x_0)
 {

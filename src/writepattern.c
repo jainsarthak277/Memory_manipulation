@@ -14,7 +14,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "writepattern.h"
+#include "../inc/writepattern.h"
 
 void write_pattern_fn(char* addr_wp, char* siz, char* sd)
 {

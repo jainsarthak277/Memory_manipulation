@@ -16,7 +16,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "verify.h"
+#include "../inc/verify.h"
 
 void verify_fn(char* addr_v, char* siz_v, char* sd_v)
 {

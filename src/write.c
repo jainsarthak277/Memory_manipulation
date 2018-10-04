@@ -8,7 +8,7 @@
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
 
-#include "write.h"
+#include "../inc/write.h"
 
 void write_fn(char *addr, char *val, char *dummy)
 {
