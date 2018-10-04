@@ -7,9 +7,10 @@
 * 
 * @author Vatsal Sheth & Sarthak Jain
 ************************************************************************************/
+
 #include "main.h"
 
-static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}, {"display",display_fn}, {"verify",&verify_fn}, {"invert",&invert_fn}}; 
+static decode lookup[] = { {"q",&quit}, {"Q",&quit}, {"help",&help_fn}, {"allocate",&allocate_fn}, {"free",&free_fn}, {"write",&write_fn}, {"pattern",&write_pattern_fn}, {"display",display_fn}, {"verify",&verify_fn}, {"invert",&invert_fn}}; 						//Lookup Table
 
 #define N (sizeof(lookup))/(sizeof(decode))
 
@@ -27,8 +28,8 @@ void main()
 	{
 		if(*fgets(prompt,70,stdin) != '\n')
 		{	
-			prompt=remove_spaces(prompt);
-			command = strtok(prompt,"-");	
+			prompt=remove_spaces(prompt);					// Remove spaces and carriage return then split string into command and options
+			command = strtok(prompt,"-");			
 			option[0] = strtok(NULL,"-");	
 			option[1] = strtok(NULL,"-");
 			option[2] = strtok(NULL,"-");
@@ -38,6 +39,9 @@ void main()
 	printf("Bye !!!\n");
 }
 
+/*
+This function seraches command in lookup table and calls corresponding function and passes options in it.
+*/
 void call_command(char *command, char *option1, char *option2, char *option3)
 {
 	__uint32_t invalid=1;	
@@ -56,6 +60,9 @@ void call_command(char *command, char *option1, char *option2, char *option3)
 	}
 }
 
+/*
+This function sets the exit condition from infinite loop
+*/
 void quit(char *dummy1, char *dummy2, char *dummy3)
 {
 	dummy1 = (char*)malloc(3);
@@ -64,6 +71,9 @@ void quit(char *dummy1, char *dummy2, char *dummy3)
 }
 
 
+/*
+This function removes spaces and carriage return from input string and returns edited string.
+*/
 char *remove_spaces(char *ip)
 {
 	__uint32_t cnt=0;
