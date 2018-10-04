@@ -1,3 +1,11 @@
+/***********************************************************************************
+* @help.h
+* @This header file includes all the function header files and it has variable and
+* function declaration used in help.c
+*
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include <stdio.h>
 #include <string.h>
 

@@ -1,3 +1,11 @@
+/***********************************************************************************
+* @writepattern.h
+* @This header file includes all the function header files and it has variable and
+* function declaration used in writepattern.c
+*
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include "allocate.h"
 #include "prng.h"
 #include <time.h>

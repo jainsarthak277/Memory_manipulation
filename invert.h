@@ -1,3 +1,11 @@
+/***********************************************************************************
+* @invert.h
+* @This headerr file includes all the function header files and it had variable and
+* function declaration used in invert.c
+*
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include "allocate.h"
 #include <time.h>
 

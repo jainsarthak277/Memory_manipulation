@@ -1,3 +1,11 @@
+/***********************************************************************************
+* @prng.h
+* @This header file includes all the function header files and it has variable and
+* function declaration used in prng.c
+*
+* @author Vatsal Sheth & Sarthak Jain
+************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
